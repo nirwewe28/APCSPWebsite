@@ -12,11 +12,14 @@
         <!-- Bootstrap JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         
+        <link rel="stylesheet" href="style.css">
+        
+        <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/2249a44c0a9f6dd6f6f0bd95c95a9c15">
+        
         <title>Nirvaan's Website</title>
     </head>
     <body>
-        <main class="container">
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <nav class="navbar navbar-expand-sm myNav navbar-dark">
                 <div class="container-fluid">
                 <a class="navbar-brand" href="#">APCSP Website</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -31,13 +34,76 @@
                 <a class="nav-link active" href="bio.html">Bio</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Projects</a>
+                <a class="nav-link" href="project.html">APCSP Projects</a>
                 </li>
                 </ul>
                 </div>
                 </div>
             </nav>
-            <h1>This is actually my bio page</h1>
-        </main>
+            <header class = "display-1">About Me</header>
+            <div class="container my-3 px-2">
+              <!-- d-flex forces them side-by-side on mobile without rigid 12-column limits -->
+              <div class="d-flex align-items-center justify-content-between gap-2" 
+                   style="--img-dynamic-size: clamp(75px, 22vw, 110px);">
+                
+                <!-- Left Column: Text (Expands to fill all left-over space) -->
+                <div class="flex-grow-1" style="min-width: 0;">
+                  <h2>Location</h2>
+                  <p class="small mb-0 text-muted" style="font-size: 0.8rem; line-height: 1.3;">
+                    This is the region I was born in, and continue to live in today.<br>
+                    Click the button below to explore in Google Maps.
+                  </p>
+                  <!-- From Uiverse.io by vinodjangid07 --> 
+                    <a href = "https://www.google.com/maps/@37.587035,-122.053714,10z?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D">
+                    <button class="button">
+                       <svg class="svgIcon" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+                      Explore
+                    </button>
+                    </a>
+                </div>
+                
+                <!-- Right Column: Image Container (Sizes automatically using the fluid variable) -->
+                <div class="flex-shrink-0">
+                  <iframe src= "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d202345.11967742868!2d-122.05371435925036!3d37.58703527710741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1789491338271!5m2!1sen!2sus" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                       class= "w-200 h-125 myFrame rounded-pill object-fit-cover border" 
+                       alt="Fluid Mobile Image"></iframe>
+                </div>
+            
+              </div>
+            </div>
+            <div class="container my-3 px-2">
+              <!-- d-flex forces them side-by-side on mobile without rigid 12-column limits -->
+              <div class="d-flex align-items-center justify-content-between gap-2" 
+                   style="--img-dynamic-size: clamp(75px, 22vw, 110px);">
+                
+                <!-- Left Column: Text (Expands to fill all left-over space) -->
+                <div class="flex-grow-1" style="min-width: 0;">
+                  <h2>My Music</h2>
+                  <p class="small mb-0 text-muted" style="font-size: 0.8rem; line-height: 1.3;">
+                    This is where you can find my released music on <a href="https://open.spotify.com/artist/3wbcWNfJlGQuVqKUM26DU4?si=5GlNbIgwQOOIsriHnoRvtw">Spotify.</a>
+                  </p>
+                </div>
+                
+                <!-- Right Column: Image Container (Sizes automatically using the fluid variable) -->
+                <div class="flex-shrink-0">
+                  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3wbcWNfJlGQuVqKUM26DU4?utm_source=generator&si=061927f5c2034b8f" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
+                       class= "w-200 h-125 myFrame"
+                       alt="Fluid Mobile Image"></iframe>
+                </div>
+            
+              </div>
+            </div>
+            <footer class="text-body-secondary py-4 border-top">
+                <div class="container d-flex flex-wrap justify-content-between align-items-center">
+                    <p class="footerText col-md-4 mb-0">&copy; 2026 Nirvaan Singh</p>
+    
+                
+                    <ul class="nav col-md-4 justify-content-end">
+                      <li class="nav-item"><a href="mailto:nirvaan0928@gmail.com" class="nav-link px-2 text-body-secondary">Gmail</a></li>
+                      <li class="nav-item"><a href="https://github.com/nirwewe28" class="nav-link px-2 text-body-secondary">GitHub</a></li>
+                      <li class="nav-item"><a href="https://granadahigh.livermoreschools.org/" class="nav-link px-2 text-body-secondary">Granada High School</a></li>
+                    </ul>
+              </div>
+        </footer>
     </body>
 </html>
