@@ -21,7 +21,9 @@
     <body>
             <nav class="navbar navbar-expand-sm myNav navbar-dark">
                 <div class="container-fluid">
-                <a class="navbar-brand" href="#">APCSP Website</a>
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-laptop"></i> APCSP Website
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,11 +38,35 @@
                 <li class="nav-item">
                 <a class="nav-link" href="project.html">APCSP Projects</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="games.html">Fun Games</a>
+                </li>
                 </ul>
                 </div>
                 </div>
             </nav>
-            <header class = "display-1">About Me</header>
+            <header class = "display-1" style="padding: 20px;">About Me</header>
+            <div class="container my-3 px-2">
+              <!-- d-flex forces them side-by-side on mobile without rigid 12-column limits -->
+              <div class="d-flex align-items-center justify-content-between gap-2" 
+                   style="--img-dynamic-size: clamp(75px, 22vw, 110px);">
+                
+                <!-- Left Column: Text (Expands to fill all left-over space) -->
+                <div class="flex-grow-1" style="min-width: 0;">
+                  <h2>My Picture</h2>
+                  <p class="small mb-0 text-muted" style="font-size: 0.9rem; line-height: 1.3;">
+                    Very handsome right?
+                  </p>
+                </div>
+                
+                <!-- Right Column: Image Container (Sizes automatically using the fluid variable) -->
+                <div class="flex-shrink-0">
+                  <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxUeQMEjIo2PlA-me33exSri1ASNCdPMIG2GwwgFPcKw&s=10"
+                       class= "myFrame image rounded-pill object-fit-cover border"
+                       alt="Fluid Mobile Image"></img>
+                </div>
+            
+              </div>
             <div class="container my-3 px-2">
               <!-- d-flex forces them side-by-side on mobile without rigid 12-column limits -->
               <div class="d-flex align-items-center justify-content-between gap-2" 
@@ -49,7 +75,7 @@
                 <!-- Left Column: Text (Expands to fill all left-over space) -->
                 <div class="flex-grow-1" style="min-width: 0;">
                   <h2>Location</h2>
-                  <p class="small mb-0 text-muted" style="font-size: 0.8rem; line-height: 1.3;">
+                  <p class="small mb-0 text-muted" style="font-size: 0.9rem; line-height: 1.3;">
                     This is the region I was born in, and continue to live in today.<br>
                     Click the button below to explore in Google Maps.
                   </p>
@@ -79,9 +105,15 @@
                 <!-- Left Column: Text (Expands to fill all left-over space) -->
                 <div class="flex-grow-1" style="min-width: 0;">
                   <h2>My Music</h2>
-                  <p class="small mb-0 text-muted" style="font-size: 0.8rem; line-height: 1.3;">
-                    This is where you can find my released music on <a href="https://open.spotify.com/artist/3wbcWNfJlGQuVqKUM26DU4?si=5GlNbIgwQOOIsriHnoRvtw">Spotify.</a>
+                  <p class="small mb-0 text-muted" style="font-size: 0.9rem; line-height: 1.3;">
+                    This is where you can find my released music on Spotify. <br> (P.S: None of the voices you hear in the music are mine because I only produce.)
                   </p>
+                    <a href = "https://open.spotify.com/artist/3wbcWNfJlGQuVqKUM26DU4?go=1&sp_cid=56ea5ab6-6fbe-4711-b4fd-6d438bd33e91&utm_source=embed_player_p&utm_medium=desktop&nd=1&dlsi=10dc0ba1db8e4106">
+                    <button class="button">
+                       <svg class="svgIcon" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+                      Explore
+                    </button>
+                    </a>
                 </div>
                 
                 <!-- Right Column: Image Container (Sizes automatically using the fluid variable) -->
@@ -92,6 +124,8 @@
                 </div>
             
               </div>
+           
+
             </div>
             <footer class="text-body-secondary py-4 border-top">
                 <div class="container d-flex flex-wrap justify-content-between align-items-center">
