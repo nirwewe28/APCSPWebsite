@@ -41,6 +41,9 @@
                 <li class="nav-item">
                 <a class="nav-link active" href="games.html">Fun Games</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="rainbowToggle">🌈 Rainbow Mode</a>
+                </li>
                 </ul>
                 </div>
                 </div>
@@ -65,3 +68,45 @@
                     </ul>
               </div>
         </footer>
+            <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const rainbowToggle = document.getElementById('rainbowToggle');
+            const navbar = document.querySelector('.myNav');
+            const footer = document.querySelector('footer');
+            let isRainbowMode = false;
+            let rainbowInterval = null;
+            const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+            let colorIndex = 0;
+        
+            if (rainbowToggle) {
+              rainbowToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                isRainbowMode = !isRainbowMode;
+                
+                if (isRainbowMode) {
+                  rainbowToggle.textContent = '🌈 Rainbow Mode ON';
+                  navbar.style.transition = 'background-color 2.5s ease-in-out';
+                  footer.style.transition = 'background-color 2.5s ease-in-out';
+                  colorIndex = 0;
+                  
+                  // Change color every 2.5 seconds
+                  rainbowInterval = setInterval(function() {
+                    navbar.style.backgroundColor = colors[colorIndex];
+                    footer.style.backgroundColor = colors[colorIndex];
+                    colorIndex = (colorIndex + 1) % colors.length;
+                  }, 2500);
+                  
+                } else {
+                  rainbowToggle.textContent = '🌈 Rainbow Mode';
+                  clearInterval(rainbowInterval);
+                  navbar.style.backgroundColor = '#35b1cc';
+                  footer.style.backgroundColor = '#35b1cc';
+                  navbar.style.transition = 'background-color 1s ease-in-out';
+                  footer.style.transition = 'background-color 1s ease-in-out';
+                }
+              });
+            }
+          });
+        </script>
+    </body>

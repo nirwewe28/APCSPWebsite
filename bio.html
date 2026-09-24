@@ -16,7 +16,7 @@
         
         <link rel="icon" type="image/x-icon" href="https://codehs.com/uploads/2249a44c0a9f6dd6f6f0bd95c95a9c15">
         
-        <title>Nirvaan's Website</title>
+        <title>Nirvaan's Bio</title>
     </head>
     <body>
             <nav class="navbar navbar-expand-sm myNav navbar-dark">
@@ -41,6 +41,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="games.html">Fun Games</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="rainbowToggle">🌈 Rainbow Mode</a>
+                </li>
                 </ul>
                 </div>
                 </div>
@@ -55,13 +58,13 @@
                 <div class="flex-grow-1" style="min-width: 0;">
                   <h2>My Picture</h2>
                   <p class="small mb-0 text-muted" style="font-size: 0.9rem; line-height: 1.3;">
-                    Very handsome right?
+                    This is how I look like.
                   </p>
                 </div>
                 
                 <!-- Right Column: Image Container (Sizes automatically using the fluid variable) -->
                 <div class="flex-shrink-0">
-                  <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxUeQMEjIo2PlA-me33exSri1ASNCdPMIG2GwwgFPcKw&s=10"
+                  <img src = "https://codehs.com/uploads/4dbf8bd2be614348d763b65b588d697f"
                        class= "myFrame image rounded-pill object-fit-cover border"
                        alt="Fluid Mobile Image"></img>
                 </div>
@@ -124,7 +127,27 @@
                 </div>
             
               </div>
-           
+                       <div class="container my-3 px-2">
+              <!-- d-flex forces them side-by-side on mobile without rigid 12-column limits -->
+              <div class="d-flex align-items-center justify-content-between gap-2" 
+                   style="--img-dynamic-size: clamp(75px, 22vw, 110px);">
+                
+                <!-- Left Column: Text (Expands to fill all left-over space) -->
+                <div class="flex-grow-1" style="min-width: 0;">
+                  <h2>My Strava</h2>
+                  <p class="small mb-0 text-muted" style="font-size: 0.9rem; line-height: 1.3;">
+                    I Like to run and I am on the XC team in Granada. <br> Here is a link to my Strava, where I log most of my runs.
+                  </p>
+                    
+                    </a>
+                </div>
+                
+                <!-- Right Column: Image Container (Sizes automatically using the fluid variable) -->
+                <div class="flex-shrink-0">
+                    <iframe height='160' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/192779866/activity-summary/015b8166ba62db418a9787da05e002250a2276ef'></iframe>
+                </div>
+            
+              </div>
 
             </div>
             <footer class="text-body-secondary py-4 border-top">
@@ -139,5 +162,46 @@
                     </ul>
               </div>
         </footer>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const rainbowToggle = document.getElementById('rainbowToggle');
+            const navbar = document.querySelector('.myNav');
+            const footer = document.querySelector('footer');
+            let isRainbowMode = false;
+            let rainbowInterval = null;
+            const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+            let colorIndex = 0;
+        
+            if (rainbowToggle) {
+              rainbowToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                isRainbowMode = !isRainbowMode;
+                
+                if (isRainbowMode) {
+                  rainbowToggle.textContent = '🌈 Rainbow Mode ON';
+                  navbar.style.transition = 'background-color 2.5s ease-in-out';
+                  footer.style.transition = 'background-color 2.5s ease-in-out';
+                  colorIndex = 0;
+                  
+                  // Change color every 2.5 seconds
+                  rainbowInterval = setInterval(function() {
+                    navbar.style.backgroundColor = colors[colorIndex];
+                    footer.style.backgroundColor = colors[colorIndex];
+                    colorIndex = (colorIndex + 1) % colors.length;
+                  }, 2500);
+                  
+                } else {
+                  rainbowToggle.textContent = '🌈 Rainbow Mode';
+                  clearInterval(rainbowInterval);
+                  navbar.style.backgroundColor = '#35b1cc';
+                  footer.style.backgroundColor = '#35b1cc';
+                  navbar.style.transition = 'background-color 1s ease-in-out';
+                  footer.style.transition = 'background-color 1s ease-in-out';
+                }
+              });
+            }
+          });
+        </script>
     </body>
 </html>

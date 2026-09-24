@@ -41,22 +41,28 @@
                 <li class="nav-item">
                 <a class="nav-link" href="games.html">Fun Games</a>
                 </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="#" id="rainbowToggle">🌈 Rainbow Mode</a>
+                </li>
                 </ul>
                 </div>
                 </div>
             </nav>
-            
-            
-            <div class="parallax">
-              <div class="contentSection">
-                <h1 class="text-center">Welcome to Nirvaan Singh's APCSP Website!</h1>
-                <p class="text-center">Click the Navigation Bar options above to see more!<br>Scroll to the footer to contact me/other links!</p>
-              </div>
+           
+            <!-- Language Selector -->
+            <div class="language-selector">
+              <h3>Choose Language:</h3>
+              <button class="lang-btn" data-lang="english">English</button>
+              <button class="lang-btn" data-lang="spanish">Español</button>
+              <button class="lang-btn" data-lang="french">Français</button>
+              <button class="lang-btn" data-lang="german">Deutsch</button>
+              <button class="lang-btn" data-lang="hindi">हिंदी</button>
             </div>
-            <div class="parallax">
+            
+            <div class="parallax" id="welcome-section">
               <div class="contentSection">
-                <h1 class="text-center">निर्वाण सिंह की APCSP वेबसाइट पर आपका स्वागत है!</h1>
-                <p class="text-center">अधिक देखने के लिए ऊपर दिए गए Navigation बार के विकल्पों पर क्लिक करें!<br>संपर्क करने और अन्य लिंक देखने के लिए नीचे footer पर स्क्रॉल करें!</p>
+                <h1 class="text-center" id="welcome-title">Welcome to Nirvaan Singh's APCSP Website!</h1>
+                <p class="text-center" id="welcome-text">Click the Navigation Bar options above to see more!<br>Scroll to the footer to contact me/other links!</p>
               </div>
             </div>
             
@@ -74,5 +80,88 @@
                     </ul>
               </div>
         </footer>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const rainbowToggle = document.getElementById('rainbowToggle');
+            const navbar = document.querySelector('.myNav');
+            const footer = document.querySelector('footer');
+            let isRainbowMode = false;
+            let rainbowInterval = null;
+            const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+            let colorIndex = 0;
+        
+            if (rainbowToggle) {
+              rainbowToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                isRainbowMode = !isRainbowMode;
+                
+                if (isRainbowMode) {
+                  rainbowToggle.textContent = '🌈 Rainbow Mode ON';
+                  navbar.style.transition = 'background-color 2.5s ease-in-out';
+                  footer.style.transition = 'background-color 2.5s ease-in-out';
+                  colorIndex = 0;
+                  
+                  // Change color every 2.5 seconds
+                  rainbowInterval = setInterval(function() {
+                    navbar.style.backgroundColor = colors[colorIndex];
+                    footer.style.backgroundColor = colors[colorIndex];
+                    colorIndex = (colorIndex + 1) % colors.length;
+                  }, 2500);
+                  
+                } else {
+                  rainbowToggle.textContent = '🌈 Rainbow Mode';
+                  clearInterval(rainbowInterval);
+                  navbar.style.backgroundColor = '#35b1cc';
+                  footer.style.backgroundColor = '#35b1cc';
+                  navbar.style.transition = 'background-color 1s ease-in-out';
+                  footer.style.transition = 'background-color 1s ease-in-out';
+                }
+              });
+            }
+          });
+        </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const translations = {
+              english: {
+                title: "Welcome to Nirvaan Singh's APCSP Website!",
+                text: "Click the Navigation Bar options above to see more!<br>Scroll to the footer to contact me/other links!"
+              },
+              spanish: {
+                title: "¡Bienvenido al sitio web APCSP de Nirvaan Singh!",
+                text: "¡Haz clic en las opciones de la barra de navegación anterior para ver más!<br>¡Desplázate hasta el pie de página para contactarme/ver otros enlaces!"
+              },
+              french: {
+                title: "Bienvenue sur le site Web APCSP de Nirvaan Singh!",
+                text: "Cliquez sur les options de la barre de navigation ci-dessus pour en voir plus!<br>Faites défiler jusqu'au pied de page pour me contacter/autres liens!"
+              },
+              german: {
+                title: "Willkommen auf Nirvaan Singhs APCSP-Website!",
+                text: "Klicken Sie auf die Optionen in der Navigationsleiste oben, um mehr zu sehen!<br>Scrollen Sie zum Fußzeilenbereich, um mich zu kontaktieren/weitere Links!"
+              },
+              hindi: {
+                title: "निर्वाण सिंह की APCSP वेबसाइट पर आपका स्वागत है!",
+                text: "अधिक देखने के लिए ऊपर दिए गए Navigation बार के विकल्पों पर क्लिक करें!<br>संपर्क करने और अन्य लिंक देखने के लिए नीचे footer पर स्क्रॉल करें!"
+              }
+            };
+        
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const titleElement = document.getElementById('welcome-title');
+            const textElement = document.getElementById('welcome-text');
+        
+            langButtons.forEach(button => {
+              button.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                
+                titleElement.textContent = translations[lang].title;
+                textElement.innerHTML = translations[lang].text;
+                
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+              });
+            });
+          });
+        </script>
     </body>
 </html>
